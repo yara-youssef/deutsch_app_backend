@@ -20,7 +20,17 @@ const getWord = async (req, res) => {
     }
 };
 
-
+const getFilteredWords = async (req, res) => {
+    try {
+        console.log('ssssss')
+        const { filter } = req.query;
+        // Assuming 'filter' contains your filter criteria
+        const words = await Word.find(filter);
+        res.status(200).json(words);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const createWord = async (req, res) => {
     try {
@@ -32,7 +42,7 @@ const createWord = async (req, res) => {
 };
 
 
-const updatetWord = async (req, res) => {
+const updateWord = async (req, res) => {
     try {
         const { id } = req.params;
         const word = await Word.findByIdAndUpdate(id, req.body);
@@ -68,6 +78,7 @@ module.exports = {
     getWords,
     getWord,
     createWord,
-    updatetWord,
-    deleteWord
+    updateWord,
+    deleteWord,
+    getFilteredWords
 }

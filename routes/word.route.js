@@ -1,7 +1,7 @@
 const express = require('express');
 const Word = require('../models/word.model.js');
 const router = express.Router();
-const { getWords, getWord, createWord, updatetWord, deleteWord } = require('../controllers/word.controller.js')
+const { getWords, getWord, createWord, updateWord, deleteWord, getFilteredWords  } = require('../controllers/word.controller.js')
 
 
 // app.get('/api/words', async (req, res) => {
@@ -19,8 +19,10 @@ router.get('/:id', getWord);
 
 router.post('/', createWord);
 
-router.post('/:id', updatetWord);
+router.put('/:id', updateWord);
 
-router.post('/:id', deleteWord);
+router.delete('/:id', deleteWord);
+
+router.get('/filterBySource', getFilteredWords);
 
 module.exports = router;

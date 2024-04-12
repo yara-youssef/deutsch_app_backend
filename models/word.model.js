@@ -17,7 +17,7 @@ const WordSchema = mongoose.Schema({
         type: String,
         required: false
     }, 
-    example:{
+    example_de:{
         type: String,
         required: false
     },
@@ -30,6 +30,18 @@ const WordSchema = mongoose.Schema({
         required: false
     },
     perfect_tense:{
+        type: String,
+        required: false
+    },
+    plural:{
+        type: String,
+        required: false
+    },
+    image:{
+        type: String,
+        required: false
+    },
+    source:{
         type: String,
         required: false
     },
