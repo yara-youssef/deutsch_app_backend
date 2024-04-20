@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const Word = require('./models/word.model.js');
 const wordRoute = require('./routes/word.route.js');
+const grammarRoute = require('./routes/grammar.route.js');
 const app = express();
 
 //middleware
@@ -12,6 +13,7 @@ app.use(cors());
 
 // routes
 app.use("/api/words", wordRoute);
+app.use("/api/grammar", grammarRoute);
 
 
 
